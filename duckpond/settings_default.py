@@ -19,8 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r843g!cpjfr*@4v9z_jjded%(qdis3i0l5m#wxso5k%y4%sn@2'
+# SECURITY WARNING: Change the following secret key 
+# and keep it for use in production secret!
+SECRET_KEY = '0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOp!?@%#+*()'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -73,37 +74,12 @@ WSGI_APPLICATION = 'duckpond.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-DATABASE_ROUTERS = ['vfwheron.router.DatabaseRouter']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(VFW_DIR, 'django.db'),
-    },    
- #   'vforwater_local': {
-    'vforwater': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'vforwater',
-        'USER': 'postgres',
-        'PASSWORD': 'vforwater',
-        'HOST': 'localhost',
-        'PORT': '5433',
-    },
-
-    'vforwater2': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'ENGINE': 'django.db.backends.postgresql',
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'gis',
-#        'NAME': 'vforwater',
-        'USER': 'postgres',
-#        'PASSWORD': 'vforwater',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-#        'HOST': 'vforwater-gis.scc.kit.edu',
-#        'PORT': '5432',
-    },
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
@@ -130,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Berlin'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
