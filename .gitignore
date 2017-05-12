@@ -1,0 +1,11 @@
+# Local / temporary files
+*.pyc
+
+# Project / IDE files
+.idea
+.project
+.pydevproject
+.settings
+
+# Python virtual environment folder
+venv
