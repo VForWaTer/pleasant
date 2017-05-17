@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'base_app/vcss/respostyle.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'base_app/vcss/css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'base_app/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--  ol.css is OpenLayers which is to render geo data in a webbrowser -->
 <link rel="stylesheet" type="text/css" href="{% static 'base_app/vcss/ol.css' %}">
 
 <!--  style of top bar -->
@@ -16,6 +17,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .respo-navbar {padding-left: 300px;}
 </style>
 <script src="{% static 'base_app/js/base.js' %}" type="text/javascript"></script>
+<script src="{% static 'base_app/js/map.js' %}" type="text/javascript"></script>
 
 <body class="respo-light-grey" >
 
@@ -63,7 +65,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <hr style="margin-bottom:0px;">
 
 	  <div class="respo-container respo-light-turquoise">
-	    <b>Temporal data storage</b>
+	  <b title="Temporal data storage">Workspace</b>
 	  </div>
 	  <ul class="respo-ul respo-card-4 respo-white" id="workspace">
 	  </ul>
