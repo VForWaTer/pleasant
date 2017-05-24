@@ -77,6 +77,11 @@ available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload
 			<input type='file' id="select_data" onchange="select_data()" style="display:none"> <!--  -->
 
 	  <hr style="margin-bottom:0px;">
+	  
+	  <!-- create a custom button pointing to an invisible input button:	 -->
+	  	<button  id = "loadData2" onclick="document.getElementById('select_data2').click()">Upload data2</button> 
+<!-- connect the input button to base.js, which will write to Workspace after selection	 -->
+			<input type='file' id="select_data2" NAME = "files[]" multiple onchange="select_data2()" /> <!--style="display:none"  -->
 
 	  <div class="respo-container respo-light-turquoise">
 	  <b title="Temporal data storage">Workspace

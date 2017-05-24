@@ -58,3 +58,25 @@ function select_data() {
 		"class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
 	}
 }
+
+function select_data2(evt) {
+	var files = evt.target.files;
+	var files = document.getElementsByName("files[]");
+	var output = [];
+	for (var i = 0, f; f = files[i]; i++) {
+		output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
+                f.size, ' bytes</li>');
+		}
+    document.getElementById("workspace").innerHTML += '<ul>' + output.join('') + '</ul>';
+//**	document.getElementById
+//**	var newButton = document.createElement("INPUT");
+//**    	newButton.setAttribute("type", "file");
+
+}
+//    document.getElementById("workspace").innerHTML += "<li class='respo-padding' id='"+x+"'><span class='respo-medium'>"+x+"</span><a href='javascript:void(0)' onclick=this.parentElement.remove(); class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
+//**    if (!document.getElementById(newButton) && newButton!=0){
+ //   	document.body.appendChild(newButton);
+
+
+//document.getElementById('files').addEventListener('change', dateiauswahl, false);
+
