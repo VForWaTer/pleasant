@@ -48,8 +48,13 @@ function search_open(){
 
 //Select Data
 function select_data() {
+		
 	var selectedData = document.getElementById("select_data").value;
+
 	if (!document.getElementById(selectedData) && selectedData!=0){
-		document.getElementById("workspace").innerHTML += "<li class='respo-padding' id='"+selectedData+"'><span class='respo-medium'>"+selectedData+"</span><a href='javascript:void(0)' onclick=this.parentElement.remove(); class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
+		document.getElementById("workspace").innerHTML += "<li class='respo-padding' " +
+		"id='"+selectedData+"'><span class='respo-medium'>"+selectedData+
+		"</span><a href='javascript:void(0)' onclick=this.parentElement.remove(); " +
+		"class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
 	}
 }

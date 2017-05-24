@@ -1,7 +1,7 @@
 {% load static %}
 
 <html>
-<title>VFORWaTer</title>
+<title>duckpond</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="{% static 'base_app/vcss/respostyle.css' %}">
@@ -17,18 +17,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .respo-navbar {padding-left: 300px;}
 </style>
 <script src="{% static 'base_app/js/base.js' %}" type="text/javascript"></script>
-<script src="{% static 'base_app/js/map.js' %}" type="text/javascript"></script>
+<!-- <script src="{% static 'base_app/js/map.js' %}" type="text/javascript"></script> -->
 
 <body class="respo-light-grey" >
 
-<!--  title bar -->    Top container
+<!--  uppermost title bar -->    
+	Top container
 	<div class="respo-container respo-top respo-black respo-medium respo-padding" style="z-index:4">
 	 <!--  button for menu on a small screen -->	
 	  <button class="respo-btn respo-hide-large respo-padding-0 respo-hover-text-grey" onclick="respo_open();"><i class="fa fa-bars"></i>  Menu</button>  
 	  <span class="respo-right"><strong>name of your project</strong></span>
 	</div>
 	
-<!-- top bar (partly overlapped by title bar) -->	Navbar
+<!-- top bar (partly overlapped by title bar) -->	
+	Navbar
 	<div class="respo-top">
 	  <ul class="respo-navbar respo-light-turquoise respo-top respo-left-align respo-medium">
 	    <li class="respo-opennav respo-right respo-hide-medium">
@@ -43,43 +45,58 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  </ul>
 	</div>
 	
+<!-- side bar -->	
 	Sidenav/menu
 	<nav class="respo-sidenav respo-collapse respo-white respo-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br><br>
 	  <div class="respo-container respo-row">
 	    <div class="respo-col s4">
 	    
 <!-- insert here the path to your logo for the upper left corner -->	    
-	      <img src="{% static 'path_to_image/logo_main.png' %}" style="width:200px"  alt="Your Logo"><br>
+<!-- 	      <img src="{% static 'path_to_image/logo_main.png' %}" style="width:200px"  alt="Your Logo"><br> -->
 	    </div>
 	  </div>
-	  <a href="#" class="respo-padding-8 respo-hide-large respo-dark-grey respo-hover-black" onclick="respo_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+	  <a href="#" class="respo-padding-8 respo-hide-large respo-dark-grey respo-hover-black" onclick="respo_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu
+	  </a>
 	  <hr style="margin-bottom:0px;">
 	  <div class="respo-container respo-light-turquoise">
-	    <b>Data access</b>
+	  
+    <b>Data access</b>
 	  </div>
-	  <i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i> <select class="respo-select" id="select_data" autocomplete="off" onchange="select_data()">
-	  	<option value="0" selected="selected">Select Data</option>
-         
-	  </select>
+	   <hr style="margin-bottom:0px;">
+  	  	<i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i>
+	  
+<!-- Here we only offer the upload button to access data. 
+No data will be uploaded yet. The better choice for offering data would be a database.
+Please be aware that uploading data is a security issue that you have to handle yourself.
+Some ideas (in German) about uploading data (and why you shouldn't offer that) are 
+available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload -->	  
+
+<!-- create a custom button pointing to an invisible input button:	 -->
+	  	<button  id = "loadData" onclick="document.getElementById('select_data').click()">Upload data</button> 
+<!-- connect the input button to base.js, which will write to Workspace after selection	 -->
+			<input type='file' id="select_data" onchange="select_data()" style="display:none"> <!--  -->
 
 	  <hr style="margin-bottom:0px;">
 
 	  <div class="respo-container respo-light-turquoise">
-	  <b title="Temporal data storage">Workspace</b>
+	  <b title="Temporal data storage">Workspace
+	  </b>
 	  </div>
 	  <ul class="respo-ul respo-card-4 respo-white" id="workspace">
 	  </ul>
 	</nav>
 
 	Overlay effect when opening sidenav on small screens
-	<div class="respo-overlay respo-hide-large respo-animate-opacity" onclick="respo_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+	<div class="respo-overlay respo-hide-large respo-animate-opacity" onclick="respo_close()" style="cursor:pointer" title="close side menu" id="myOverlay">
+	</div>
 	
 	!PAGE CONTENT!
 	<div class="respo-main" style="margin-left:300px;margin-top:40px;">
 	{% block content %}{% endblock %}
-	  
+
 	<footer class="respo-container respo-padding-16 respo-light-grey">
-	 <p style="text-align:center">Powered by <a href="http://www.dead_lake.ny" target="_blank">You</a> | Copyright &copy; 1972-3978</p>
+	 <p style="text-align:center">Powered by <a href="http://www.dead_lake.ny" target="_blank">You</a> | Copyright &copy; 1972-3978
+	 </p>
 	</footer>
 	  
 	</div>
