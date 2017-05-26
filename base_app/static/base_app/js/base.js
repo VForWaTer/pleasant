@@ -47,36 +47,13 @@ function search_open(){
 }
 
 //Select Data
-function select_data() {
-		
-	var selectedData = document.getElementById("select_data").value;
-
-	if (!document.getElementById(selectedData) && selectedData!=0){
-		document.getElementById("workspace").innerHTML += "<li class='respo-padding' " +
-		"id='"+selectedData+"'><span class='respo-medium'>"+selectedData+
-		"</span><a href='javascript:void(0)' onclick=this.parentElement.remove(); " +
-		"class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
-	}
-}
-
-function select_data2(evt) {
+function select_data(evt) {
 	var files = evt.target.files;
-	var files = document.getElementsByName("files[]");
-	var output = [];
 	for (var i = 0, f; f = files[i]; i++) {
-		output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
-                f.size, ' bytes</li>');
+		document.getElementById("workspace").innerHTML += "<li class='respo-padding' " +
+		"id='"+f.name+"'><span class='respo-medium'><strong>"+f.name+
+		"</strong> \r\n("+ f.type + ") - "+f.size+"  bytes</span><a href='javascript:void(0)' onclick=this.parentElement.remove(); " +
+		"class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
 		}
-    document.getElementById("workspace").innerHTML += '<ul>' + output.join('') + '</ul>';
-//**	document.getElementById
-//**	var newButton = document.createElement("INPUT");
-//**    	newButton.setAttribute("type", "file");
 
 }
-//    document.getElementById("workspace").innerHTML += "<li class='respo-padding' id='"+x+"'><span class='respo-medium'>"+x+"</span><a href='javascript:void(0)' onclick=this.parentElement.remove(); class='respo-hover-white respo-right'><i class='fa fa-remove fa-fw'></i></a><br></li>";
-//**    if (!document.getElementById(newButton) && newButton!=0){
- //   	document.body.appendChild(newButton);
-
-
-//document.getElementById('files').addEventListener('change', dateiauswahl, false);
-

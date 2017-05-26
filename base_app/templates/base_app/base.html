@@ -71,18 +71,13 @@ Please be aware that uploading data is a security issue that you have to handle 
 Some ideas (in German) about uploading data (and why you shouldn't offer that) are 
 available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload -->	  
 
-<!-- create a custom button pointing to an invisible input button:	 -->
-	  	<button  id = "loadData" onclick="document.getElementById('select_data').click()">Upload data</button> 
+ 	  <!-- create a custom button pointing to an invisible input button:	 -->
+	  	<button  id = "loadData" onclick="document.getElementById('select_data_but').click()">Upload data</button> 
 <!-- connect the input button to base.js, which will write to Workspace after selection	 -->
-			<input type='file' id="select_data" onchange="select_data()" style="display:none"> <!--  -->
+			<input type="file" id="select_data_but" multiple  style="display:none"
+			onclick="document.getElementById('select_data_but').addEventListener('change', select_data, false);"/> 
 
-	  <hr style="margin-bottom:0px;">
-	  
-	  <!-- create a custom button pointing to an invisible input button:	 -->
-	  	<button  id = "loadData2" onclick="document.getElementById('select_data2').click()">Upload data2</button> 
-<!-- connect the input button to base.js, which will write to Workspace after selection	 -->
-			<input type='file' id="select_data2" NAME = "files[]" multiple onchange="select_data2()" /> <!--style="display:none"  -->
-
+	   <hr style="margin-bottom:0px;">
 	  <div class="respo-container respo-light-turquoise">
 	  <b title="Temporal data storage">Workspace
 	  </b>
