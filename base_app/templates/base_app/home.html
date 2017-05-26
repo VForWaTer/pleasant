@@ -1,2 +1,9 @@
 {% extends "base_app/base.html" %}
 {% load static %}
+
+<!-- the following block loads the map defined in map.js -->
+{% block content %}
+<div id="map" class="map" onload="create_map()">  	
+</div>
+
+{% endblock %}
