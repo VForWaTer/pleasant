@@ -1,8 +1,5 @@
 {% extends "base_app/base.html" %}
 
-{% block sidebar %} 
-	 
-{% endblock sidebar %}
 
 {% block content %}
 
@@ -20,7 +17,7 @@
 
 <div class="respo-half">
   <div class="respo-container respo-light-turquoise respo-padding-16 respo-third-n">
-	<div class="respo-left"><i class="fa fa-user respo-xxxlarge"></i> <strong>LDAP Login</strong></div>
+	<div class="respo-left"><i class="fa fa-user respo-xxxlarge"></i> <strong>Default Login</strong></div>
        <div class="respo-clear"></div>
         <form role="form" action="{% url 'base_app:login' %}" method="post">{% csrf_token %}
         <div class="form-group respo-padding-bottom">
