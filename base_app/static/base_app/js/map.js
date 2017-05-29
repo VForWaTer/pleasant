@@ -8,8 +8,8 @@ function create_map() {
 	});
 
 	mapview = new ol.View({
-		center: ol.proj.fromLonLat([11.8810049, 50.0836865]),
-		zoom: 6
+		center: ol.proj.fromLonLat([-111.3203, 37,0252]),
+		zoom: 11
 	});
 	
 	map_tar = document.getElementById("map");
