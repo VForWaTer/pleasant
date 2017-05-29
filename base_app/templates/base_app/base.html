@@ -64,55 +64,16 @@ html, body, h1, h2, h3, h4, h5 {
 			<li class="respo-hide-small"><a href="#" onclick="search_open()"
 				id="srch_box" class="respo-hover-white"><i
 					class="fa fa-search fa-fw"></i> Search</a></li>
+					<!-- TODO:  correct possition of search box in font-awesome -->
 			<li class="respo-hide-small"><a id="srch_but"
 				class="respo-hover-none"></a></li>
 			<li class="respo-hide-small"><a id="srch_close_but"
 				class="respo-hover-none"></a></li>
 		</ul>
 	</div>
-
-	<!-- side bar -->
-	Sidenav/menu
-	<nav
-		class="respo-sidenav respo-collapse respo-white respo-animate-left"
-		style="z-index: 3; width: 300px;" id="mySidenav">
-		<br> <br>
-		<div class="respo-container respo-row">
-			<div class="respo-col s4">
-
-				<!-- insert here the path to your logo for the upper left corner -->
-				<!-- 	      <img src="{% static 'path_to_image/logo_main.png' %}" style="width:200px"  alt="Your Logo"><br> -->
-			</div>
-		</div>
-		<a href="#"
-			class="respo-padding-8 respo-hide-large respo-dark-grey respo-hover-black"
-			onclick="respo_close()" title="close menu"><i
-			class="fa fa-remove fa-fw"></i> Close Menu </a>
-		<hr style="margin-bottom: 0px;">
-		<div class="respo-container respo-light-turquoise">
-
-			<b>Data access</b>
-
-		</div>
-
-		<hr style="margin-bottom: 0px;">
-		<i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i> 
-		{% block data_access %}{% endblock data_access%}
-
-
-		<hr style="margin-bottom: 0px;">
-		<div class="respo-container respo-light-turquoise">
-			<b title="Temporal data storage">Workspace </b>
-		</div>
-		<ul class="respo-ul respo-card-4 respo-white" id="workspace">
-		</ul>
-	</nav>
-
-	Overlay effect when opening sidenav on small screens
-	<div class="respo-overlay respo-hide-large respo-animate-opacity"
-		onclick="respo_close()" style="cursor: pointer"
-		title="close side menu" id="myOverlay"></div>
-
+	{% block sidebar %}
+	{% endblock sidebar %}
+	
 	!PAGE CONTENT!
 	<div class="respo-main" style="margin-left: 300px; margin-top: 40px;">
 		{% block content %}{% endblock content %}

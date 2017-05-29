@@ -1,10 +1,10 @@
-{% extends "base_app/base.html" %} 
-
-{% block data_access %}
-	{% include 'base_app/data_access.html' %}
-{% endblock data_access%}
+{% extends "base_app/base.html" %}
+ 
+{% block sidebar %} 
+	{% include 'base_app/base_sidebar.html' %} 
+{% endblock sidebar %}
 
 <!-- the following block loads the map defined in map.js and map.html -->
-{% block content %}
-	{% include 'base_app/map.html' %}
+{% block content %} 
+	{% include 'base_app/map.html' %} 
 {% endblock content %}

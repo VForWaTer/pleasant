@@ -1,9 +1,12 @@
+{% load static %}
+
 <!-- Here we only offer the upload button to access data. 
 No data will be uploaded yet. The better choice for offering data would be a database.
 Please be aware that uploading data is a security issue that you have to handle yourself.
 Some ideas (in German) about uploading data (and why you shouldn't offer that) are 
 available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload -->
 
+<script src="{% static 'base_app/js/data_access.js' %}" type="text/javascript"></script>
 <!-- create a custom button pointing to an invisible input button:	 -->
 <button id="loadData"
 	onclick="document.getElementById('select_data_but').click()">Upload data</button>
