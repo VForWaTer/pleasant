@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('base_app.urls')),
+    url(r'^workbench/', include('duckpond_wps.urls')),
 ]

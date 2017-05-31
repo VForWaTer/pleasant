@@ -7,21 +7,12 @@ Sidenav/menu
 <nav class="respo-sidenav respo-collapse respo-white respo-animate-left"
 	style="z-index: 3; width: 300px;" id="mySidenav">
 	<br> <br>
-	{% include 'base_app/logo.html' %}
+	{% include 'base_app/logo.html' %} 
 	<a href="#"
 		class="respo-padding-8 respo-hide-large respo-dark-grey respo-hover-black"
-		onclick="respo_close()" title="close menu"><i
-		class="fa fa-remove fa-fw"></i> Close Menu </a>
-	<hr style="margin-bottom: 0px;">
-	<div class="respo-container respo-light-turquoise">
-		<b>Data access</b>
-	</div>
-
-	<hr style="margin-bottom: 0px;">
-	<i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i> 
-	{% block data_access %} 
-		{% include 'base_app/data_access.html' %} 
-	{% endblock data_access %}
+		onclick="respo_close()" title="close menu">
+		<i class="fa fa-remove fa-fw"></i> Close Menu 
+	</a>
 
 	<hr style="margin-bottom: 0px;">
 	<div class="respo-container respo-light-turquoise">

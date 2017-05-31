@@ -51,12 +51,22 @@ html, body, h1, h2, h3, h4, h5 {
 			    <i class="fa fa-home fa-fw"></i> Home
 			  </a>
 			</li>
-			<!-- Please add path to your documentation here to enable help link -->
+			<!-- Here the tools for the workbench are added via WPS - feel free to use your tools in any way you want -->
+			{% block navbar_extensions %}
+		    <!-- TODO: Need a monitor app
+		    <li class="respo-hide-small">
+		      <a href="#path to your monitor app" class="respo-hover-white">
+		        <i class="fa fa-eye fa-fw"></i>  Monitor
+		      </a>
+		    </li> -->
+		    {% endblock navbar_extensions %}
+			<!-- Please add here path to your documentation to enable help link -->
 			<li class="respo-hide-small">
 			  <a href="#path to your documentation" class="respo-hover-white">
 			    <i class="fa fa-book fa-fw"></i> Help
 			  </a>
 			</li>
+			<!--  TODO: Why is the search button working only once? -->
 			<li class="respo-hide-small">
 			  <a href="#" onclick="search_open()" id="srch_box" class="respo-hover-white">
 			    <i class="fa fa-search fa-fw"></i> Search
@@ -90,7 +100,7 @@ html, body, h1, h2, h3, h4, h5 {
 	{% endblock sidebar %}
 	
 	!PAGE CONTENT!
-	<div class="respo-main" style="margin-left: 300px; margin-top: 40px;">
+	<div class="respo-main" style="margin-left: 300px; margin-top: 50px;">
 		{% block content %}
 		{% endblock content %}
 
