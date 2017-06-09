@@ -29,8 +29,11 @@ Sidenav/menu
 		Workspace 
 	   </b>
 	</div>
-	<ul class="respo-ul respo-card-4 respo-white" id="workspace">
-	</ul>
+	
+	{% block workspace %} 
+		{% include 'base_app/workspace.html' %} 
+	{% endblock workspace %}
+	
 </nav>
 
 Overlay effect when opening sidenav on small screens

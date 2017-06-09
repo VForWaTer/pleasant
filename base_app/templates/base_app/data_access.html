@@ -1,29 +1,22 @@
 {% load static %}
 
 <!-- Here we only offer the upload button to access data. 
-No data will be uploaded yet. The better choice for offering data would be a database.
 Please be aware that uploading data is a security issue that you have to handle yourself.
+Django stores data up to 2.5 megabyte in memory, bigger files in a tmp folder. For details see
+https://docs.djangoproject.com/en/1.11/topics/http/file-uploads/#where-uploaded-data-is-stored  
 Some ideas (in German) about uploading data (and why you shouldn't offer that) are 
-available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload -->
+available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload 
+The better choice for offering data would be a database. -->
 
-<script src="{% static 'base_app/js/data_access.js' %}" type="text/javascript"></script>
-<!-- create a custom button pointing to an invisible input button:	 -->
-<button id="loadData"
-	onclick="document.getElementById('select_data_button_js').click()">Upload data</button>
-<!-- connect the input button to base.js, which will write to Workspace after selection	 -->
-<!-- create an invisible input button -->
-<input type="file" id="select_data_button_js" multiple style="display: none " 
-	onclick="document.getElementById('select_data_button_js').addEventListener('change', select_data, false);" />
-	<p></p>
 	
-
-   <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ upload_form }}
-    <!-- create a custom button pointing to an invisible input button:	 -->
-    <button onclick="document.getElementById('select_data_button').click()"  >
-    Upload data</button>
-  </form>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <!-- (invisible) input button is defined in forms.py -->
+  {{ upload_form }}
+  <!-- create a custom button pointing to an invisible input button:	 -->
+  <button onclick="document.getElementById('select_data_button').click()"  >
+  Upload data</button>
+</form>
 
 
   {% if uploaded_file_url %}
