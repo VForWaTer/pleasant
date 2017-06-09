@@ -9,20 +9,20 @@ available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload
 <script src="{% static 'base_app/js/data_access.js' %}" type="text/javascript"></script>
 <!-- create a custom button pointing to an invisible input button:	 -->
 <button id="loadData"
-	onclick="document.getElementById('select_data_button').click()">Upload data</button>
+	onclick="document.getElementById('select_data_button_js').click()">Upload data</button>
 <!-- connect the input button to base.js, which will write to Workspace after selection	 -->
 <!-- create an invisible input button -->
-<input type="file" id="select_data_button" multiple style="display: none " 
-	onclick="document.getElementById('select_data_button').addEventListener('change', select_data, false);" />
+<input type="file" id="select_data_button_js" multiple style="display: none " 
+	onclick="document.getElementById('select_data_button_js').addEventListener('change', select_data, false);" />
 	<p></p>
 	
 
    <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ upload_form }}
-    <button id="loadData" 
-    onclick="document.getElementById('select_data_button2').click()"  >
-    Upload with forms.py</button>
+    <!-- create a custom button pointing to an invisible input button:	 -->
+    <button onclick="document.getElementById('select_data_button').click()"  >
+    Upload data</button>
   </form>
 
 

@@ -6,8 +6,8 @@ from django import forms
 class MultiUploadFileForm(forms.Form):
     file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={
         'multiple': True, 
-        'id': 'select_data_button2',
+        'id': 'select_data_button',
         'style': 'display: none',
         'onchange': "this.form.submit()",
-        }))
+        }), label='')
 
