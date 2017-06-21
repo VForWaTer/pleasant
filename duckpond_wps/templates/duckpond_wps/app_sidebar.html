@@ -11,15 +11,19 @@ Sidenav/menu
 	<a href="#"
 		class="respo-padding-8 respo-hide-large respo-dark-grey respo-hover-black"
 		onclick="respo_close()" title="close menu">
-		<i class="fa fa-remove fa-fw"></i> Close Menu 
-	</a>
-
+		<i class="fa fa-remove fa-fw"></i> Close Menu </a>
 	<hr style="margin-bottom: 0px;">
+
 	<div class="respo-container respo-light-turquoise">
-		<b title="Temporal data storage">Workspace </b>
+		<b title="Temporal data storage">
+		 Workspace 
+		</b>
 	</div>
-	<ul class="respo-ul respo-card-4 respo-white" id="workspace">
-	</ul>
+	
+	{% block workspace %} 
+		{% include 'base_app/workspace.html' %} 
+	{% endblock workspace %}
+	
 </nav>
 
 Overlay effect when opening sidenav on small screens
