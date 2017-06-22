@@ -16,8 +16,8 @@ class HomeView(TemplateView, FormView):
     form_class = MultiUploadFileForm
     file_list = []
     file_list_dict = {}
-    print('the file_list: ', file_list)
-    print('file_list_dict: ', file_list_dict)
+  #  print('the file_list: ', file_list)
+  #  print('file_list_dict: ', file_list_dict)
 
 #    def get_context_data(self, **kwargs):
 #        get_unit_id = TblVariable.objects.using('vforwater').select_related('unit').values_list('variable_name', 'variable_symbol')
@@ -35,8 +35,8 @@ class HomeView(TemplateView, FormView):
         self.file_list_dict = (self.file_list_dict, files)
    #    print(form)
    #    print(form_class)
-        print('dir2: ', dir(self.file_list))
-        print('dir2_dict: ', dir(self.file_list_dict))
+  #      print('dir2: ', dir(self.file_list))
+  #      print('dir2_dict: ', dir(self.file_list_dict))
        #print('doc ', self.file_list.__doc__)
    #    for i in self.file_list:
     #       print('i: ', i)
@@ -44,7 +44,7 @@ class HomeView(TemplateView, FormView):
   #             print (j)
        #self.file_list.remove(request)
 #       print ('2')
-        print ('Null: ', dir(self.file_list[0]))
+  #      print ('Null: ', dir(self.file_list[0]))
          
        #print ('zwei: ', self.file_list[2])
        #print (len.self.file_list)
@@ -68,12 +68,43 @@ class HomeView(TemplateView, FormView):
     def set_data(self, request, *args, **kwargs):
         files = request.FILES.getlist('file_field')
         self.file_list.extend(files)
-        print('I am in set data')
+       # print('I am in set data')
         pass
         
     def remove_data(self, *args, **kwargs):
-        print('remove data; here I am')
+        #print('remove data; here I am')
         return {'file_list': self.file_list}
-        
+    
+    
+from django.http import JsonResponse
+from django.views import View
+from .forms import DataForm
+from .models import UploadedFile
+
+class DataUploadView(View):
+    def get(self, request):
+        data_list = UploadedFile.objects.all()
+        print('get geht', data_list)
+        return render(self.request, 'base_app/workspace.html', {'data': data_list})
+#        return render(self.request, 'base_app/data_access.html', {'data': data_list})
+            
+    def post(self, request):
+        form = DataForm(self.request.POST, self.request.FILES)
+        print('im Post', form)
+        if form.is_valid():
+            file = form.save()
+            data = {'is_valid': True, 'name': file.file.name, 'url': file.file.url}
+            print('if post ', file.file.name, ' url ', file.file.url)
+        else:
+            data = {'is_valid': False}
+            print('else post', data)
+        return JsonResponse(data)
+
+
+
+
 class Login(TemplateView):
     template_name = 'base_app/login.html'
+    
+    
+    

@@ -20,5 +20,22 @@ The better choice for offering data would be a database. -->
 		Upload data</button>
 </form>
 
+{% block javascript %}
+  <script src="{% static 'base_app/js/data_access.js' %}"></script>
+{% endblock %}
+    
 
-
+{# create a button pointing to an invisible input button: #}
+<hr style="margin-bottom: 0px;">
+<i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i> 
+<button type="button" class="btn btn-primary js-upload-photos">Upload data
+</button>
+<!-- call js function for upload and (invisible) input button 
+id is the same as defined in data_access.js -->
+<input id="fileupload" type="file" name="file" multiple
+       style="display: none;"
+       data-url="{% url 'base_app:data_access' %}"
+       data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+    </div>
+  
+    

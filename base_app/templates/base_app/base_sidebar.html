@@ -1,6 +1,7 @@
 {% load static %}
 
 <script src="{% static 'base_app/js/base_sidebar.js' %}" type="text/javascript"></script>
+<script src="{% static 'base_app/js/jquery-3.2.1.min.js' %}"></script>
 
 <!-- side bar -->
 Sidenav/menu
@@ -16,10 +17,18 @@ Sidenav/menu
 	<div class="respo-container respo-light-turquoise">
 		<b>Data access</b>
 	</div>
-	
-	{% block data_access %} 
-		{% include 'base_app/data_access.html' %} 
-	{% endblock data_access %}
+
+{# JQUERY FILE UPLOAD SCRIPTS #}
+<script src="{% static 'base_app/js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'base_app/js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'base_app/js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+  	
+{% block javascript %}
+{% endblock %}	
+
+{% block data_access %} 
+{% include 'base_app/data_access.html' %} 
+{% endblock data_access %}
 
 	<hr style="margin-bottom: 0px;">
 	<div class="respo-container respo-light-turquoise">

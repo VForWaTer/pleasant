@@ -1,5 +1,16 @@
 {% load static %}
 
+{# Show files in workspace #}
+<table id="gallery" class="table table-bordered">
+  <tbody>
+    {% for files in data %}
+      <tr>
+        <td><a href="{{ files.file.url }}">{{ files.file.name }}</a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>   
+
 <ul class="respo-ul respo-card-4 respo-white" id="workspace">
 		{% for f in file_list %}
 			<li class='respo-padding' id={{ f }}>

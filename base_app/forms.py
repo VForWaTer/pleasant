@@ -11,3 +11,9 @@ class MultiUploadFileForm(forms.Form):
         'onchange': "this.form.submit()",
         }), label='')
 
+from .models import UploadedFile
+
+class DataForm(forms.ModelForm):
+    class Meta:
+        model = UploadedFile
+        fields = ('file', )
