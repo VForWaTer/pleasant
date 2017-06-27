@@ -1,6 +1,6 @@
 $(function () {
   /* 1. OPEN THE FILE EXPLORER WINDOW */
-  $(".js-upload-photos").click(function () {
+  $(".js-upload-files").click(function () {
     $("#fileupload").click();
   });
 

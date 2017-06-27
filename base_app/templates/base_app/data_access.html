@@ -9,16 +9,16 @@ available at https://wiki.selfhtml.org/wiki/PHP/Anwendung_und_Praxis/File_Upload
 The better choice for offering data would be a database. -->
 
 
-<form method="post" enctype="multipart/form-data" name='title'>
-	{% csrf_token %}
-	<!-- (invisible) input button is defined in forms.py -->
-	<hr style="margin-bottom: 0px;">
-	<i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i> 
-	{{ upload_form }} 
-	<!-- create a custom button pointing to an invisible input button:	 -->
-	<button onclick="document.getElementById('select_data_button').click()">
-		Upload data</button>
-</form>
+<!-- <form method="post" enctype="multipart/form-data" name='title'> -->
+<!-- 	{% csrf_token %} -->
+<!-- 	<!-- (invisible) input button is defined in forms.py --> 
+<!-- 	<hr style="margin-bottom: 0px;"> -->
+<!-- 	<i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i>  -->
+<!-- 	{{ upload_form }}  -->
+<!-- 	<!-- create a custom button pointing to an invisible input button:	 -->
+<!-- 	<button onclick="document.getElementById('select_data_button').click()"> -->
+<!-- 		Upload data</button> -->
+<!-- </form> -->
 
 {% block javascript %}
   <script src="{% static 'base_app/js/data_access.js' %}"></script>
@@ -28,7 +28,7 @@ The better choice for offering data would be a database. -->
 {# create a button pointing to an invisible input button: #}
 <hr style="margin-bottom: 0px;">
 <i class="respo-padding fa fa-arrow-circle-o-right fa-fw"></i> 
-<button type="button" class="btn btn-primary js-upload-photos">Upload data
+<button type="button" class="btn btn-primary js-upload-files">Upload data
 </button>
 <!-- call js function for upload and (invisible) input button 
 id is the same as defined in data_access.js -->

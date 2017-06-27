@@ -4,9 +4,7 @@
 <table id="gallery" class="table table-bordered">
   <tbody>
     {% for files in data %}
-      <tr>
-        <td><a href="{{ files.file.url }}">{{ files.file.name }}</a></td>
-      </tr>
+        <a href="{{ files.file.url }}">{{ files.file.name }}</a>
     {% endfor %}
   </tbody>
 </table>   
@@ -27,7 +25,9 @@
 		{% empty %}
 			<li>Please select some data</li>
 		{% endfor %}
-</ul>
+</ul> 
+
+
 
 <script>
 function deleteFile(f) {
