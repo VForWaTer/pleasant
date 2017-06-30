@@ -5,7 +5,7 @@
   <tbody>
     {% for files in data %}
         <a href="{{ files.file.url }}">{{ files.file.name }}</a>
-         <form method="post" action="{% url 'files:clear_database' %}">
+         <form method="post" action="{% url 'base_app:clear_database' %}">
 		    {% csrf_token %}
 		    <input type="hidden" name="next" value="{{ request.path }}">
 		    <button type="submit" class="btn btn-danger pull-right">
@@ -16,25 +16,7 @@
   </tbody>
 </table>   
 
-<ul class="respo-ul respo-card-4 respo-white" id="workspace">
-		{% for f in file_list %}
-			<li class='respo-padding' id={{ f }}>
-				<span class='respo-medium'>
-					<strong>{{ f }}</strong> 
-					<br> {{ f.content_type }} - {{ f.size|filesizeformat }} 
- 				</span>
-
-				<a href="{% url 'base_app:home' %}" method="post" onclick="deleteFile(value={ id });" ; 
- 					class='respo-hover-white respo-right'>{% csrf_token %}<i class='fa fa-remove fa-fw'></i>
- 				</a>
-
-			</li>
-		{% empty %}
-			<li>Please select some data</li>
-		{% endfor %}
-</ul> 
-
-<ul class="respo-ul respo-card-4 respo-white" id="workspace">
+<ul class="respo-ul respo-card-4 respo-white table table-bordered" id="gallery">
 		{% for f in data %}
 			<li class='respo-padding' id={{ f }}>
 				<span class='respo-medium'>
