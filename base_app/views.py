@@ -7,7 +7,7 @@ from django.template.defaultfilters import length
 from pywps.app import WPSRequest
 from tests import test_wpsrequest
 from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 #from .models import UploadedFile
 
 # Create your views here.
@@ -59,7 +59,10 @@ class HomeView(TemplateView):
 #     def remove_data(self, *args, **kwargs):
 #         #print('remove data; here I am')
 #         return {'file_list': self.file_list}
-#     
+    def get(self, request):
+        data_list = UploadedFile.objects.all()
+        print('get geht: ', data_list)
+        return render(self.request, 'base_app/workspace.html', {'data': data_list})#     
     
 from django.http import JsonResponse
 from django.views import View
@@ -69,7 +72,7 @@ from .models import UploadedFile
 class DataUploadView(View):
     def get(self, request):
         data_list = UploadedFile.objects.all()
-        print('get geht', data_list)
+        print('get geht: ', data_list)
         return render(self.request, 'base_app/workspace.html', {'data': data_list})
 #        return render(self.request, 'base_app/data_access.html', {'data': data_list})
             
@@ -85,7 +88,25 @@ class DataUploadView(View):
             print('else post', data)
         return JsonResponse(data)
 
-
+def clear_database(request):
+    print ('clear: ', UploadedFile.objects.all())
+    for file in UploadedFile.objects.all():
+        file.file.delete()
+        file.delete()
+    return redirect(request.POST.get('next'))
+  
+def delete_data(request, pk):
+    data = get_object_or_404(UploadedFile, pk=pk)
+    print ('in delete / data: ', data)
+    if request.method == 'POST':
+        form = DataForm(request.POST, instance = data)
+    else:
+        form = DataForm(instance = data)
+    return DataUploadView.get(request)
+    for file in UploadedFile.objects.all():
+        file.file.delete()
+        file.delete()
+    return redirect(request.POST.get('next'))
 
 
 class Login(TemplateView):
