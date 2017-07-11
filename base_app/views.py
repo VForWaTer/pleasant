@@ -5,7 +5,6 @@ from django.views.generic.edit import FormView
 from .forms import MultiUploadFileForm
 from django.template.defaultfilters import length
 from pywps.app import WPSRequest
-from tests import test_wpsrequest
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -20,24 +19,19 @@ class HomeView(TemplateView):
 
     def get(self, request):
         data_list = UploadedFile.objects.all()
-        print('get geht: ', data_list)
         return render(self.request, 'base_app/home.html', {'data': data_list})
         
     def post(self, request):
         form = DataForm(self.request.POST, self.request.FILES)
-        print('im Post', form)
         if form.is_valid():
             file = form.save()
             data = {'is_valid': True, 'name': file.file.name, 'url': file.file.url}
-            print('if post ', file.file.name, ' url ', file.file.url)
         else:
             data = {'is_valid': False}
-            print('else post', data)
         return JsonResponse(data)
 
 
 def clear_database(request):
-    print ('clear: ', UploadedFile.objects.all())
     for file in UploadedFile.objects.all():
         file.file.delete()
         file.delete()

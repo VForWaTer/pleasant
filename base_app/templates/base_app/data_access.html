@@ -25,11 +25,5 @@ id is the same as defined in data_access.js -->
 		data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
 </div>
 
-  <form method="post" action="{% url 'base_app:clear_database' %}">
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{{ request.path }}">
-    <button type="submit" class="btn btn-danger pull-right">
-      <span class="glyphicon glyphicon-trash"></span> Clear Database
-    </button>
-  </form>
+
 
