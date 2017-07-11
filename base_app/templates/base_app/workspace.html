@@ -16,7 +16,8 @@
   </tbody>
 </table>   
 
-<ul class="respo-ul respo-card-4 respo-white table table-bordered" id="gallery">
+<ul class="respo-ul respo-card-4 respo-white" id="workspace">
+	<div>
 		{% for f in data %}
 			<li class='respo-padding' id={{ f }}>
 				<span class='respo-medium'>
@@ -32,6 +33,7 @@
 		{% empty %}
 			<li>Please select some data</li>
 		{% endfor %}
+	</div>
 </ul> 
 
 <script>
