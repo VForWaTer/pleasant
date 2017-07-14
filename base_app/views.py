@@ -13,13 +13,29 @@ from django.views import View
 from .forms import DataForm
 from .models import UploadedFile
 
+from django.apps import apps
+import re
+from importlib import import_module
+
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'base_app/home.html'
 
-    def get(self, request):
-        data_list = UploadedFile.objects.all()
-        return render(self.request, 'base_app/home.html', {'data': data_list})
+# import values for top navigation bar from apps and push to home
+    def get_context_data(self, **kwargs):
+        print('HA!!!')
+        navbar =[]
+        for app in apps.get_app_configs(): # get settings of your apps
+            if not re.search('^django.*', app.name): # but not the django apps
+                interimImport = import_module(app.name + '.app_settings')
+                navbar.append(interimImport.NavButton)
+        for a in navbar:
+            print(a.link)
+        return {'navbar': navbar}
+     
+#     def get(self, request):
+#         data_list = UploadedFile.objects.all()
+#         return render(self.request, 'base_app/home.html', {'data': data_list})
         
     def post(self, request):
         form = DataForm(self.request.POST, self.request.FILES)
@@ -54,5 +70,5 @@ def delete_data(request, pk):
 class Login(TemplateView):
     template_name = 'base_app/login.html'
     
-    
+#     TODO: find better Name for Workspace. Maybe Datarack?
     
