@@ -1,9 +1,7 @@
 from django.conf import settings
 from django.views.generic import TemplateView
-from django.views.generic.edit import FormView
 
 from .forms import MultiUploadFileForm
-from django.template.defaultfilters import length
 from pywps.app import WPSRequest
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -12,10 +10,6 @@ from django.http import JsonResponse
 from django.views import View
 from .forms import DataForm
 from .models import UploadedFile
-
-from django.apps import apps
-import re
-from importlib import import_module
 
 # Create your views here.
 class HomeView(TemplateView):
