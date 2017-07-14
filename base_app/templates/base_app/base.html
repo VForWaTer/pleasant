@@ -60,21 +60,6 @@ html, body, h1, h2, h3, h4, h5 {
 		    </li> -->
 		    {% endblock %}
 
-			{% if navbar %}
-			    {% for Button in navbar %}
-		   			<li class="respo-hide-small">
-					  <a href="{{ Button.link|safe }}" class="respo-hover-white">
-					    <i class="fa {{ Button.icon }} fa-fw"></i> H{{ Button.name }}{{ Button.link|safe }}
-					  </a>
-					</li>
-				{% endfor %}
-			{% else %}
-				<li class="respo-hide-small">
-			  <a href="{% url 'base_app:home' %}" class="respo-hover-white">
-				    <i class="fa fa-home fa-fw"></i> MIST! Geht nicht!
-				  </a>
-				</li>
-			{% endif %}
 			<!-- Please add here path to your documentation to enable help link -->
 			<li class="respo-hide-small">
 			  <a href="#path to your documentation" class="respo-hover-white">
