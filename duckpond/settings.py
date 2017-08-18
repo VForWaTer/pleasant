@@ -15,7 +15,12 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+# For now, place all data files in VFW_DIR and not into source directory.
+HOME_DIR = os.path.expanduser('~')
+VFW_DIR = os.path.join(HOME_DIR, '.vforwater')
+if not os.path.exists(VFW_DIR):
+    os.makedirs(VFW_DIR)
+    
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -38,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'base_app',
+    'duckpond_wps',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media', # to access the MEDIA_URL
             ],
         },
     },
@@ -70,40 +78,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'duckpond.wsgi.application'
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-DATABASE_ROUTERS = ['vfwheron.router.DatabaseRouter']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(VFW_DIR, 'django.db'),
     },    
- #   'vforwater_local': {
-    'vforwater': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'vforwater',
-        'USER': 'postgres',
-        'PASSWORD': 'vforwater',
-        'HOST': 'localhost',
-        'PORT': '5433',
-    },
 
-    'vforwater2': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'ENGINE': 'django.db.backends.postgresql',
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'gis',
-#        'NAME': 'vforwater',
-        'USER': 'postgres',
-#        'PASSWORD': 'vforwater',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-#        'HOST': 'vforwater-gis.scc.kit.edu',
-#        'PORT': '5432',
-    },
 }
 
 
