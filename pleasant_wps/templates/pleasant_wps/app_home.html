@@ -1,14 +1,14 @@
 {% extends "base_app/base.html" %}
  
  {% block navbar_extensions %}
- 	{% include 'duckpond_wps/nav_button.html' %}
+ 	{% include 'pleasant_wps/nav_button.html' %}
  {% endblock navbar_extensions %}
  
 {% block sidebar %} 
-	{% include 'duckpond_wps/app_sidebar.html' %} 
+	{% include 'pleasant_wps/app_sidebar.html' %}
 {% endblock sidebar %}
 
 <!-- the following block loads the map defined in map.js and map.html -->
 {% block content %}
- 	{% include 'duckpond_wps/start.html' %}
+ 	{% include 'pleasant_wps/start.html' %}
 {% endblock content %}

@@ -5,7 +5,7 @@ from django.conf.urls import url, include
 from . import views
 
 
-app_name = 'duckpond_wps'
+app_name = 'pleasant_wps'
 
 urlpatterns = [
     url(r'^$', views.Workbench.as_view(), name='workbench'),

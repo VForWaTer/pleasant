@@ -1,4 +1,4 @@
-"""duckpond URL Configuration
+"""pleasant URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('base_app.urls')),
-    url(r'^workbench/', include('duckpond_wps.urls')),
+    url(r'^workbench/', include('pleasant_wps.urls')),
   #  url(r'^photos/', include('mysite.photos.urls', namespace='photos')),
     url(r'^uploads/', include('base_app.urls', namespace='uploads')),
 ]
