@@ -1,12 +1,8 @@
-from django.conf import settings
 from django.views.generic import TemplateView
 
-from .forms import MultiUploadFileForm
-from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from django.http import JsonResponse
-from django.views import View
 from .forms import DataForm
 from .models import UploadedFile
 
