@@ -9,14 +9,18 @@ For details check the respective '_default' file.
 # Quick start
 
 Create and activate virtual environment
+
     python3 -m venv venv
     source venv/bin/activate
 
 Install django
+
     pip install django
 
 Prepare database
+
     python manage.py migrate
 
 Start django server
+
     python manage.py runserver
