@@ -15,11 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# For now, place all data files in VFW_DIR and not into source directory.
+# For now, place all data files in PLEASANT_DIR and not into source directory.
 HOME_DIR = os.path.expanduser('~')
-VFW_DIR = os.path.join(HOME_DIR, '.vforwater')
-if not os.path.exists(VFW_DIR):
-    os.makedirs(VFW_DIR)
+PLEASANT_DIR = os.path.join(HOME_DIR, '.pleasant')
+if not os.path.exists(PLEASANT_DIR):
+    os.makedirs(PLEASANT_DIR)
     
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -85,7 +85,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(VFW_DIR, 'django.db'),
+        'NAME': os.path.join(PLEASANT_DIR, 'django.db'),
     },    
 
 }
