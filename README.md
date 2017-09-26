@@ -36,3 +36,7 @@ Install [Docker](https://get.docker.com/) and [Compose](https://docs.docker.com/
 Start all the things.
 
     $ docker-compose up
+
+Create superuser account (while service is running).
+
+    $ docker exec -it pleasant_web_1 /bin/bash -c "python3 manage.py createsuperuser"
