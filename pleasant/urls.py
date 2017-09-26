@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^workbench/', include('pleasant_wps.urls')),
   #  url(r'^photos/', include('mysite.photos.urls', namespace='photos')),
     url(r'^uploads/', include('base_app.urls', namespace='uploads')),
+    url(r'^wfs/', include('wfs.urls')),
 ]
 
 

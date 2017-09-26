@@ -19,6 +19,16 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     netcat
 
+# For recent Django versions we need to install our patched version
+# of django-wfs.
+RUN apt-get update && apt-get install -y \
+    git
+RUN mkdir /wfs
+WORKDIR /wfs
+RUN git clone https://github.com/VForWaTer/django-wfs.git
+WORKDIR /wfs/django-wfs
+RUN pip3 install .
+
 ADD . /code
 WORKDIR /code
 

@@ -2,7 +2,9 @@ version: '3'
 
 services:
     db:
-        image: postgres
+        image: mdillon/postgis
+        environment:
+            - POSTGRES_PASSWORD=notsosecret
     web:
         # Docker hack to wait until Postgres is up, then run stuff.
         # https://www.stavros.io/posts/how-deploy-django-docker/
