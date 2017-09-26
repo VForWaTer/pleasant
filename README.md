@@ -24,3 +24,14 @@ Prepare database
 Start django server
 
     python manage.py runserver
+
+# Docker
+
+Install [Docker](https://get.docker.com/) and [Docker-Compose](https://docs.docker.com/compose/install/).
+
+    $ curl -fsSL get.docker.com -o get-docker.sh
+    $ sh get-docker.sh
+    $ pip install docker-compose
+
+Start all the things.
+    $ docker-compose up

@@ -9,9 +9,20 @@ RUN apt-get update && apt-get install -y \
     libproj-dev \
     gdal-bin
 
+# Installing python gdal bindings is not straight forward (compare
+# https://gist.github.com/cspanring/5680334) so let's just install
+# them from the system repositories.
+RUN apt-get update && apt-get install -y \
+    python3-gdal
+
+# We'll use netcat to check if the (remote) database is already up.
+RUN apt-get update && apt-get install -y \
+    netcat
+
 ADD . /code
 WORKDIR /code
 
 RUN pip3 install -r requirements.txt
 
-CMD python3 manage.py runserver 0.0.0.0:8000
+EXPOSE 8000
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
