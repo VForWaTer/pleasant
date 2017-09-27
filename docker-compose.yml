@@ -8,9 +8,9 @@ services:
     web:
         # Docker hack to wait until Postgres is up, then run stuff.
         # https://www.stavros.io/posts/how-deploy-django-docker/
-        command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1; done;
+        command: bash -c "while ! nc -w 1 -z db 5432; do sleep 1; done;
                           python3 manage.py migrate;
-                          while :; do python3 manage.py runserver 0.0.0.0:8000; sleep 1; done"
+                          python3 manage.py runserver 0.0.0.0:8000"
         build: .
         volumes:
             - .:/code

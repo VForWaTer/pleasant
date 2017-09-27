@@ -26,12 +26,11 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /wfs
 WORKDIR /wfs
 RUN git clone https://github.com/it-thematic/django-wfs.git
-WORKDIR /wfs/django-wfs
-RUN pip3 install .
+RUN pip3 install ./django-wfs
 
+# Copy pleasant sources.
 ADD . /code
 WORKDIR /code
-
 RUN pip3 install -r requirements.txt
 
 EXPOSE 8000
