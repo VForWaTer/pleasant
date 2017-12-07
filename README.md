@@ -1,4 +1,4 @@
-For authentication we over an app to connect to watts. As Watts authenticaion requies Python 3.6, we use Python 3.6 for the project.
+For authentication we offer an app to connect to Watts. As Watts authenticaion requies Python 3.6, we use Python 3.6 for the project.
 
 In this project you find several '_default' files (pleasant/settings_default.py, ).
 
