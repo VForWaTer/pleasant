@@ -1,26 +1,41 @@
-For authentication we offer an app to connect to Watts. As Watts authenticaion requies Python 3.6, we use Python 3.6 for the project.
+# Platform for Environmental And Spatial Analysis Tools
 
-In this project you find several '_default' files (pleasant/settings_default.py, ).
+Pleasant is a django web-application with apps for easy interaction with WPS and data containing geographic information. 
 
-Please remove '_default' from the filename and adjust the file according to your own system.
+# Installation
 
-For details check the respective '_default' file.
+There a few requirements for Pleasant and it's easy running it right on the spot. All you need is python 3 and pip. As an alternative for simple and reproducable testing, Docker files are provided.
 
-# Quick start
+## Quick start
 
 Create and activate virtual environment
 
-    python3 -m venv venv
-    source venv/bin/activate
+    $ python3 -m venv venv
+    $ source venv/bin/activate
 
-Install django
+Install requirements
 
-    pip install django
+    $ pip install -r requirements.txt
 
 Prepare database
 
-    python manage.py migrate
+    $ python manage.py migrate
 
 Start django server
 
-    python manage.py runserver
+    $ python manage.py runserver
+
+## Docker and Compose
+
+Install Docker
+
+    $ curl -fsSL get.docker.com -o get-docker.sh
+    $ sh get-docker.sh
+
+Install Docker-Compose
+
+    $ sudo pip install docker-compose
+
+Run Pleasant through docker
+
+    $ docker-compose up
