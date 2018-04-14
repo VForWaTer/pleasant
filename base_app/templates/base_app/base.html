@@ -22,7 +22,9 @@ html, body, h1, h2, h3, h4, h5 {
 
 .respo-navbar {
 	padding-left: 300px;
+    overflow:visible
 }
+
 </style>
 <script src="{% static 'base_app/js/base.js' %}" type="text/javascript"></script>
 <body class="respo-light-grey">
@@ -66,6 +68,29 @@ html, body, h1, h2, h3, h4, h5 {
 			    <i class="fa fa-book fa-fw"></i> Help
 			  </a>
 			</li>
+			<!-- TODO: Fill Dropdown -->
+			<li class="respo-hide-small">
+			  <a href="#path to your content" class="respo-hover-white">
+			    <i class="fa fa-balance-scale fa-fw"></i>
+				  <div class="respo-container respo-dropdown-hover">
+					<div class="nav respo-dropdown-click">Select your method</div>
+					<div class="respo-dropdown-content">
+						{% for process in wps.processes %}
+							<a class="respo-hover-blue nav"
+							   href="{% url 'wps:process' service=service identifier=process.identifier %}"
+							   title="{{ process.abstract|cut:"  " }}">{{ process.title }}
+							</a>
+						{% empty %}
+							<option class="respo-hover-blue nav" value="Aggregate" title="Aggregates Data">Aggregate</option>
+							<option class="respo-hover-blue nav" value="Interpolate" title="Interpolates Datasets">Interpolate</option>
+							<option class="respo-hover-blue nav" value="Regression" title="Makes an obsession of your regression">Regression</option>
+							<option class="respo-hover-blue nav" value="NA-Models" title="Na na na na na na na na na na na na na na na na... BATMAN!">NA-Models</option>
+						{% endfor %}
+					</div>
+                </div>
+			  </a>
+			</li>
+
 			<!--  TODO: Why is the search button working only once? -->
 			<li class="respo-hide-small">
 			  <a href="#" onclick="search_open()" id="srch_box" class="respo-hover-white">
